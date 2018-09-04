@@ -1,0 +1,58 @@
+
+|••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••|
+|•••••••••••••••••••••••••••••••••••••••• MÓDULO 09(Backend) ••••••••••••••••••••••••••••••••••••••••|
+|••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••|
+
+
+•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-• INTRODUÇÃO •-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•
+
+
+• CRIA REPOSITÓRIOS
+
+• CRIA SERVIÇO DE 
+
+• CRIA 3 SISTEMAS DE BUSCAS NOS REPOSITÓRIOS: USER,TICKET E CHANGESTATUS;
+
+• CRIAR O SERVICE PARA UTILIZAR ESSES SITEMAS DE BUSCAS EM SERVICE: USER: USER IMPLEMENTADO(ONDE VAI FICAR A LÓGICA DE NEGÓCIO));
+
+
+•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-• TOKENS •-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•
+
+
+• CRIA A CLASSE JwtTokenUtil COM OS MÉTODOS DE MANIPULAÇÃO DOS TOKENS;
+
+• CRIA A CLASSE JwtUser COM OS DADOS DE QUEM ESTÁ AUTENTICADO NO SISTEMA;
+
+• CRIA A CLASSE JwtUserFactory PARA CONVERTER O USUÁRIO DO TOKEN PARA O FORMATO RECONHECIDO PELO SPRING SECURITY
+
+• CRIA A CLASSE JwtUserDetailsServiceImpl QUE VALIDA O EMAIL E CRIA O USER RETORNANDO DEPOIS DO FACTORY
+
+• CRIA A CLASSE JwtAuthenticationEntryPoint PARA TRATAR UM ERRO DE AUTENTICAÇÃO
+
+• CRIA A CLASSE JwtAuthenticationTokenFilter, UM FILTRO QUE VERIFICA O ACESSO A CADA REQUISIÇÃO(SE EXISTE NO HEADER UM TOKEN INVÁLIDO AUTORIZANDO O ACESO);
+
+• CRIA A CLASSE WebSecurityConfig PARA HABILITAR TODA A CONFIGURAÇÃO DO SPRING SECURITY NA APLICAÇÃO;
+
+OBS: Com isso, todas as requisições serão validadas e dependerão de um token válido para acessar qualquer ação no sistema.
+
+• O LOGIN VAI DEPENDER DE 3 ARQUIVOS: UM PARA O USUÁRIO(CurrentUser), UM PARA RETORNAR O TOKEN(JwtAuthenticationRequest) E O CONTROLLER DE AUTENTICAÇÃO(AuthenticationRestController);
+
+• CRIA A CLASSE SimpleCORSFilter PARA HABILIDAR OS ACESSOS NOS HEADERS;
+
+
+•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-• TICKET •-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•
+
+
+• CRIA A INTERFACE TicketService PARA COLOCAR OS MÉTODOS DE PESQUISA;
+
+• CRIA A CLASSE TicketServiceImpl PARA IMPLEMENTAR OS CÓDIGOS DA INTERFACE ACIMA;
+
+
+•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-• CONTROLLER •-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•
+
+
+• CRIA A CLASSE UserController PARA FAZER O CRUD COM USUÁRIOS;
+
+• CRIA A CLASSE TicketController PARA FAZER O CRUD DE TICKETS;
+
+• CRIA A CLASSE Summary QUE FAZ O RESUMO DE TUDO;
