@@ -1,0 +1,18 @@
+<form class="col-6 offset-3 border border-light" style="padding: 100px; margin-top: 100px;">
+  <h1 class="text-center">Acesse sua conta</h1>
+  <div class="md-form mb-5">
+      <i class="fa fa-envelope prefix grey-text"></i>
+      <input type="email" id="defaultForm-email" [formControl]="loginFormModalEmail" class="form-control validate" mdbInputDirective>
+      <label data-error="wrong" data-success="right" for="defaultForm-email">Seu email</label>
+    </div>
+
+    <div class="md-form mb-4">
+      <i class="fa fa-lock prefix grey-text"></i>
+      <input type="password" id="defaultForm-pass" [formControl]="loginFormModalPassword" class="form-control validate" mdbInputDirective>
+      <label data-error="wrong" data-success="right" for="defaultForm-pass">Sua senha</label>
+    </div>
+
+  <div class="modal-footer d-flex justify-content-center">
+    <button mdbBtn color="default" class="waves-light" mdbWavesEffect>Login</button>
+  </div>
+</form>
