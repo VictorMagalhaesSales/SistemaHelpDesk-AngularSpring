@@ -6,20 +6,12 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  
-  showTemplate: boolean = false;
-  public shared : SharedService;
+export class AppComponent{
+
+  shared : SharedService;
 
   constructor(){
     this.shared = SharedService.getInstance();
   }
-
-  ngOnInit(){
-    this.shared.showTempalte.subscribe(
-      show => this.showTemplate = show
-    )
-  }
-
   
 }

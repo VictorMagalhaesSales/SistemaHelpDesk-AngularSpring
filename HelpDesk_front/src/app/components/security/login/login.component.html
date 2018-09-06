@@ -23,15 +23,14 @@
         </div>
         <br>
         <div class="modal-footer d-flex justify-content-center">
-          <button type="button" [disabled]="f.invalid" (click)="cancelLogin()" color="danger" class="waves-light" mdbBtn mdbWavesEffect>Cancelar login<i class="fa fa-ban ml-2 fa-1x animated flip"></i></button>
-          <button type="button" [disabled]="f.invalid" color="info" class="waves-light" mdbBtn mdbWavesEffect>Efetuar login<i class="fa fa-sign-in ml-2 fa-1x  animated flip"></i></button>
+          <button type="button" (click)="cancelLogin()" color="danger" class="waves-light" mdbBtn mdbWavesEffect>Cancelar login<i class="fa fa-ban ml-2 fa-1x animated flip"></i></button>
+          <button type="button" [disabled]="f.invalid" (click)="login()" color="info" class="waves-light" mdbBtn mdbWavesEffect>Efetuar login<i class="fa fa-sign-in ml-2 fa-1x  animated flip"></i></button>
         </div>
 
         <div class="alert alert-error" role="alert" *ngIf="message">
-          <strong>Email e/ou senha errado(s).</strong>
+          <strong>Email e/ou senha incorreto(s).</strong>
         </div>
-
       </form>
     </mdb-card-body>
   </mdb-card>    
-</div>  
+</div> 

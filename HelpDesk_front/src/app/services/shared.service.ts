@@ -9,12 +9,17 @@ export class SharedService {
   public static instance : SharedService = null;
   user: UserModel;
   token: string;
-  showTempalte = new EventEmitter<boolean>();
+  showTemplate = new EventEmitter<boolean>();
 
-  constructor() {
+  constructor(token?: string, user?: UserModel){
+    if(token != null){
+      this.user = user;
+      this.token = token;
+    }
     return SharedService.instance = SharedService.instance || this;
+    
   }
-
+  
   public static getInstance(){
     if(this.instance = null){
       this.instance = new SharedService();
@@ -27,5 +32,20 @@ export class SharedService {
       return false;
     }
     return this.user.email != '';
+  }
+
+  setLogin(token: string, user: UserModel){
+    this.token = token;
+    this.user = user;
+  }
+
+  emitirTrue(){
+    this.showTemplate.emit(true);
+    //console.log("emitindo true");
+  }
+
+  emitirFalse(){
+    this.showTemplate.emit(false);
+    //console.log("emitindo false");
   }
 }
