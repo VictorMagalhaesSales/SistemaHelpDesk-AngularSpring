@@ -16,7 +16,7 @@ export class AuthInterceptor implements HttpInterceptor{
         let authRequest: any;
 
         if(this.shared.isLoggedIn()){
-            console.log("autenticou"); 
+            console.log("Autorização"); 
             authRequest = req.clone({
                 setHeaders: {   
                     "Authorization" : this.shared.token
@@ -24,7 +24,7 @@ export class AuthInterceptor implements HttpInterceptor{
             });
             return next.handle(authRequest);
         }else{
-            console.log("nao autenticou");
+            console.log("nao Autorização");
             return next.handle(req);
         }
     }

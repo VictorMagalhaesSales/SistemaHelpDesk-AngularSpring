@@ -6,7 +6,7 @@
     </div>
     
     <mdb-card-body>
-      <form #f="ngForm">
+      <form #form="ngForm">
 
         <div class="md-form">
           <i class="fa fa-envelope prefix"></i>
@@ -34,7 +34,7 @@
 
         <br>
         <div class="modal-footer d-flex justify-content-center">
-          <button type="submit" (click)="registrar()" [disabled]="f.invalid" color="info" class="waves-light" mdbBtn mdbWavesEffect>Efetuar login<i class="fa fa-sign-in ml-2 fa-1x  animated flip"></i></button>
+          <button type="submit" (click)="registrar()" [disabled]="form.invalid" color="info" class="waves-light" mdbBtn mdbWavesEffect>Efetuar login<i class="fa fa-sign-in ml-2 fa-1x  animated flip"></i></button>
         </div>
 
         <div [ngClass]="classCss" role="alert" *ngIf="message">

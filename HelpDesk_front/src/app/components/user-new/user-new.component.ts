@@ -13,8 +13,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UserNewComponent implements OnInit {
 
-  @ViewChild("f")
-  f: NgForm
+  @ViewChild("form")
+  form: NgForm
 
   user = new UserModel('','','','','');
   shared: SharedService;
@@ -52,7 +52,7 @@ export class UserNewComponent implements OnInit {
     this.userService.createOrUpdate(this.user).subscribe((responseApi: ResponseApi) => {
       this.user = new UserModel('','','','','');
       let userRet: UserModel =  responseApi.data;
-      this.f.resetForm();
+      this.form.resetForm();
       this.showMessage({
         type: 'success',
         text: `Registrado ${userRet.email} com sucesso`

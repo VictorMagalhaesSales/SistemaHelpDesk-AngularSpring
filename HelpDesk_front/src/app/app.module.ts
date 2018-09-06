@@ -1,7 +1,9 @@
+import { AuthInterceptor } from './components/security/auth.interceptor';
+import { InterceptorModule } from './components/security/interceptor.module';
 import { AppRoutingModule } from './app.routing.module';
 import { AuthGuard } from './components/security/auth.guard';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { NavbarModule, WavesModule, ButtonsModule, InputsModule, CardsFreeModule  } from 'angular-bootstrap-md';
@@ -27,6 +29,7 @@ import { UserNewComponent } from './components/user-new/user-new.component';
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
+    InterceptorModule,
     
    // MAATERIAL DESIGN FOR BOOTSTRAP - ANGULAR
     NavbarModule,
@@ -39,7 +42,12 @@ import { UserNewComponent } from './components/user-new/user-new.component';
   providers: [
     UserService,
     SharedService,
-    AuthGuard
+    AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+     },
   ],
   bootstrap: [AppComponent]
 })
