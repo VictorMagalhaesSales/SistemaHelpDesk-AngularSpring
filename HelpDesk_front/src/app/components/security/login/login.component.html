@@ -1,22 +1,37 @@
-<form class="col-8 offset-2 border border-light z-depth-1-half" style="padding: 100px; margin-top: 100px;">
-
-  <h1 class="text-center">Acesse sua conta</h1>
-  <br>
-
-  <div class="md-form mb-5">
-      <i class="fa fa-envelope prefix grey-text"></i>
-      <input type="email" id="defaultForm-email" [formControl]="loginFormModalEmail" class="form-control validate" mdbInputDirective>
-      <label data-error="wrong" data-success="right" for="defaultForm-email">Seu email</label>
+<br><br><br><br><br><br>
+<div  class="col-6 offset-3">
+  <mdb-card cascade="true" narrower="true">
+    <div class="view view-cascade card-header light-blue darken-3 white-text" style="padding: 5%">
+      <h4 class="card-header-title text-center"><i class="fa fa-lock" aria-hidden="true"></i><b> Acesse a sua conta</b></h4>
     </div>
+    
+    <mdb-card-body>
+      <form #f="ngForm" (ngSubmit)="login()">
 
-    <div class="md-form mb-4">
-      <i class="fa fa-lock prefix grey-text"></i>
-      <input type="password" id="defaultForm-pass" [formControl]="loginFormModalPassword" class="form-control validate" mdbInputDirective>
-      <label data-error="wrong" data-success="right" for="defaultForm-pass">Sua senha</label>
-    </div>
+        <div class="md-form" [ngClass]="getFormGroupClass(femail.invalid, femail.dirty)">
+          <i class="fa fa-envelope prefix"></i>
+          <input type="email" id="email" name="email" class="form-control" mdbInputDirective [mdbValidate]="false" [(ngModel)]="user.email" #femail="ngModel" required>
+          <label  for="email">Seu email</label>
+          <span *ngIf="femail.invalid && femail.dirty" class="red-text">* Insira seu email</span>
+        </div>
 
-  <div class="modal-footer d-flex justify-content-center">
-    <button mdbBtn color="info" class="waves-light" mdbWavesEffect>Login<i class="fa fa-sign-in ml-2 fa-1x"></i></button>
-  </div>
+        <div class="md-form" [ngClass]="getFormGroupClass(fpassword.invalid, fpassword  .dirty)">
+          <i class="fa fa-lock prefix"></i>
+          <input type="password" id="fpassword" name="password" class="form-control" mdbInputDirective [mdbValidate]="false" [(ngModel)]="user.password" #fpassword="ngModel" required>
+          <label for="fpassword">Sua senha</label>
+          <span *ngIf="fpassword.invalid && fpassword.dirty" class="red-text">* Insira sua senha</span>
+        </div>
+        <br>
+        <div class="modal-footer d-flex justify-content-center">
+          <button type="button" [disabled]="f.invalid" (click)="cancelLogin()" color="danger" class="waves-light" mdbBtn mdbWavesEffect>Cancelar login<i class="fa fa-ban ml-2 fa-1x animated flip"></i></button>
+          <button type="button" [disabled]="f.invalid" color="info" class="waves-light" mdbBtn mdbWavesEffect>Efetuar login<i class="fa fa-sign-in ml-2 fa-1x  animated flip"></i></button>
+        </div>
 
-</form>
+        <div class="alert alert-error" role="alert" *ngIf="message">
+          <strong>Email e/ou senha errado(s).</strong>
+        </div>
+
+      </form>
+    </mdb-card-body>
+  </mdb-card>    
+</div>  

@@ -2,7 +2,6 @@ import { UserModel } from './../../../model/user.model';
 import { UserService } from './../../../services/user.service';
 import { SharedService } from './../../../services/shared.service';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CurrentUser } from '../../../model/current.user.model';
 
@@ -12,9 +11,6 @@ import { CurrentUser } from '../../../model/current.user.model';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
-  loginFormModalEmail = new FormControl('', Validators.email);
-  loginFormModalPassword = new FormControl('', Validators.required);
 
   user = new UserModel('','','','','');
   shared : SharedService;
@@ -53,4 +49,11 @@ export class LoginComponent implements OnInit {
     window.location.reload();
   }
 
+  getFormGroupClass(isInvalid: boolean, isDirty: boolean){
+    return {
+      "form-group": true,
+      "has-error": isInvalid && isDirty,
+      "has-success": !isInvalid && isDirty
+    };
+  }
 }

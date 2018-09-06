@@ -2,7 +2,7 @@ import { NO_ERRORS_SCHEMA, NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
-import { NavbarModule, WavesModule, ButtonsModule } from 'angular-bootstrap-md';
+import { NavbarModule, WavesModule, ButtonsModule, InputsModule, CardsFreeModule  } from 'angular-bootstrap-md';
 
 
 import { AppComponent } from './app.component';
@@ -11,6 +11,8 @@ import { UserService } from './services/user.service';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/security/login/login.component';
 import { routes } from './app.routes';
+import { FormsModule } from '@angular/forms';
+// MDB Angular Free
 
 @NgModule({
   declarations: [
@@ -23,13 +25,14 @@ import { routes } from './app.routes';
     BrowserModule,
     HttpClientModule,
     routes,
+    FormsModule,
 
-
-
-
+   // MAATERIAL DESIGN FOR BOOTSTRAP - ANGULAR
     NavbarModule,
     WavesModule,
     ButtonsModule,
+    InputsModule,
+    CardsFreeModule,
     MDBBootstrapModule.forRoot(),
   ],
   providers: [UserService],
