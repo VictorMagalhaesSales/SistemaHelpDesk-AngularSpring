@@ -1,5 +1,5 @@
-<br><br><br><br><br><br><br><br><br><br><br>
-<div  class="col-4 offset-4  animated flipInY">
+<br><br><br><br><br><br><br><br>
+<div  class="col-4 offset-4 animated flipInY">
   <mdb-card cascade="true" narrower="true">
     <div class="view view-cascade card-header danger-color white-text" style="padding: 5%">
       <h4 class="card-header-title text-center"><i class="fa fa-lock" aria-hidden="true"></i><b> Acesse a sua conta</b></h4>
@@ -23,8 +23,8 @@
         </div>
         <br>
         <div class="modal-footer d-flex justify-content-center">
-          <button type="button" (click)="cancelLogin()" color="danger" class="waves-light" mdbBtn mdbWavesEffect>Cancelar login<i class="fa fa-ban ml-2 fa-1x animated flip"></i></button>
-          <button type="button" [disabled]="f.invalid" (click)="login()" color="info" class="waves-light" mdbBtn mdbWavesEffect>Efetuar login<i class="fa fa-sign-in ml-2 fa-1x  animated flip"></i></button>
+          <button type="button" (click)="cancelLogin()" color="danger" class="waves-light" mdbBtn mdbWavesEffect>Cancelar<i class="fa fa-ban ml-2 fa-1x animated flip"></i></button>
+          <button type="button" [disabled]="f.invalid" (click)="login()" color="info" class="waves-light" mdbBtn mdbWavesEffect>Login<i class="fa fa-sign-in ml-2 fa-1x  animated flip"></i></button>
         </div>
 
         <div class="alert alert-error" role="alert" *ngIf="message">

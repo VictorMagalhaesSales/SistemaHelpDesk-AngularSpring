@@ -1,7 +1,9 @@
 import { SharedService } from './../../services/shared.service';
-import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from "@angular/common/http";
+import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HTTP_INTERCEPTORS  } from "@angular/common/http";
 import { Observable } from 'rxjs';
+import { Injectable } from '@angular/core';
 
+@Injectable()   
 export class AuthInterceptor implements HttpInterceptor{
 
     shared: SharedService;
@@ -14,13 +16,15 @@ export class AuthInterceptor implements HttpInterceptor{
         let authRequest: any;
 
         if(this.shared.isLoggedIn()){
+            console.log("autenticou"); 
             authRequest = req.clone({
-                setHeaders: {
-                    "Autorization" : this.shared.token
+                setHeaders: {   
+                    "Authorization" : this.shared.token
                 }
-            })
+            });
             return next.handle(authRequest);
         }else{
+            console.log("nao autenticou");
             return next.handle(req);
         }
     }

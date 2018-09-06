@@ -16,13 +16,17 @@ export class UserService {
     return this.http.post(`${HELP_DESK_API}/api/auth`,user);
   }
 
-  createOrUpdate(user: UserModel){
+  /*createOrUpdate(user: UserModel){
     if(user.id != null && user.id != ''){
       return this.http.put(`${HELP_DESK_API}/api/user`,user);
     } else {
       user.id == null;
       return this.http.post(`${HELP_DESK_API}/api/user`,user);
     }
+  }*/
+
+  createOrUpdate(user: UserModel){
+      return this.http.post(`${HELP_DESK_API}/api/user`,user);
   }
 
   findAll(page: number, count: number){
